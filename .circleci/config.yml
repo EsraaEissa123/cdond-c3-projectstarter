@@ -1,7 +1,5 @@
 version: 2.1
 
-version: 2.1
-
 commands:
   destroy_environment:
     description: Destroy backend and frontend cloudformation stacks given a workflow ID.
@@ -387,30 +385,3 @@ workflows:
           requires:
             - smoke_test_backend
             - smoke_test_frontend
-
-
-jobs:
-  build_frontend:
-
-  build_backend:
-  
-  test_frontend:
-    docker: 
-    steps:
-      - checkout
-      - restore_cache:
-      - run:
-          name: Run frontend test
-          command:
-
-workflows:
-  my_workflow:
-    jobs:
-      - build_frontend
-      - build_backend
-      - test_frontend:
-          requires:[build_frontend]
-      - test_backend:
-          requires: [build_backend]
-      
-            
